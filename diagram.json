@@ -1,0 +1,42 @@
+
+{
+  "version": 1,
+  "author": "Pradip Magadum [06]",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0.6, "left": -3.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -70.8,
+      "left": 157.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "board-ds18b20",
+      "id": "temp1",
+      "top": 66.07,
+      "left": 388.08,
+      "attrs": {
+        "temperature": "25"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -72.85,
+      "left": 268.8,
+      "attrs": { "value": "4700" }
+    }
+  ],
+  "connections": [
+    [ "mega:8", "led1:A", "green", [ "v0" ] ],
+    [ "mega:GND.1", "led1:C", "black", [ "v0" ] ],
+    [ "mega:5V", "temp1:VCC", "red", [ "v0" ] ],
+    [ "mega:GND.2", "temp1:GND", "black", [ "v0" ] ],
+    [ "mega:2", "r1:2", "green", [ "v0" ] ],
+    [ "temp1:DQ", "r1:2", "green", [ "v0" ] ],
+    [ "mega:5V", "r1:1", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
